@@ -28,15 +28,6 @@ static const int STB_BASE_OPCODE = STA_BASE_OPCODE + 1;
 static const int STC_BASE_OPCODE = STA_BASE_OPCODE + 1;
 
 
-/*
-	TODO:
-
-	static const char *ST_OPCODE_TOKEN = "st";
-
-	static const int STA_BASE_OPCODE = 0x30;
-	...
-*/
-
 static const char *JMP_OPCODE_TOKEN = "jmp";
 static const int JMP_BASE_OPCODE = 0x40;
 
@@ -109,7 +100,7 @@ int main(int argc, char *argv[])
                     if (tokens >> token) {
                         std::transform(token.begin(), token.end(), token.begin(), tolower);
 						
-						// "ld a 100"
+
                         if (token == REGISTER_A_TOKEN) {
                             instruction = LDA_BASE_OPCODE;
                         } else if (token == REGISTER_B_TOKEN) {
@@ -140,8 +131,7 @@ int main(int argc, char *argv[])
 					int instruction, data;
                     if (tokens >> token) {
                         std::transform(token.begin(), token.end(), token.begin(), tolower);
-						
-						// "st a 100"
+
                         if (token == REGISTER_A_TOKEN) {
                             instruction = STA_BASE_OPCODE;
                         } else if (token == REGISTER_B_TOKEN) {
